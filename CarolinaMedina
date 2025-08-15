@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carolina Medina - AI Ethics Researcher, Media Strategist & Storyteller</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'glass-blue': '#3b82f6',
+                        'glass-purple': '#8b5cf6',
+                        'glass-pink': '#ec4899',
+                        'glass-emerald': '#10b981',
+                        'glass-amber': '#f59e0b',
+                        'glass-indigo': '#6366f1'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #f5576c 75%, #4facfe 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            min-height: 100vh;
+        }
+        
+        .heading-font {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .glass {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+        
+        .glass-strong {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .glass-subtle {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(22px);
+            -webkit-backdrop-filter: blur(22px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.12);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .glass-card:hover {
+            background: rgba(255, 255, 255, 0.18);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .glass-button {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .glass-button:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .glass-input {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .glass-input:focus {
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+        }
+        
+        .floating-element {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .floating-element:nth-child(2) { animation-delay: 1s; }
+        .floating-element:nth-child(3) { animation-delay: 2s; }
+        .floating-element:nth-child(4) { animation-delay: 3s; }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+        
+        .smooth-scroll {
+            scroll-behavior: smooth;
+        }
+        
+        .text-gradient {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .text-gradient-alt {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .nav-link {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background: linear-gradient(90deg, #667eea, #f093fb);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .portfolio-item {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .portfolio-item.hidden {
+            opacity: 0;
+            transform: scale(0.8) translateY(20px);
+            pointer-events: none;
+        }
+        
+        .filter-btn {
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .filter-btn.active {
+            background: rgba(255, 255, 255, 0.25);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .timeline-item {
+            opacity: 0;
+            transform: translateX(-30px);
+            animation: slideInGlass 0.8s ease forwards;
+        }
+        
+        @keyframes slideInGlass {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        .glass-orb {
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.05) 70%);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .achievement-glass {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.1) 100%);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.1);
+        }
+        
+        .icon-glass {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .pulse-glass {
+            animation: pulseGlass 2s infinite;
+        }
+        
+        @keyframes pulseGlass {
+            0%, 100% { 
+                box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4);
+                transform: scale(1);
+            }
+            50% { 
+                box-shadow: 0 0 0 20px rgba(255, 255, 255, 0);
+                transform: scale(1.05);
+            }
+        }
+        
+        .stagger-animation {
+            animation-delay: calc(var(--stagger) * 0.1s);
+        }
+    </style>
+</head>
+<body class="smooth-scroll text-white">
+    <!-- Floating Glass Orbs -->
+    <div class="fixed inset-0 pointer-events-none z-0">
+        <div class="floating-element glass-orb absolute top-20 left-10 w-32 h-32 rounded-full"></div>
+        <div class="floating-element glass-orb absolute top-40 right-20 w-24 h-24 rounded-full"></div>
+        <div class="floating-element glass-orb absolute bottom-40 left-1/4 w-40 h-40 rounded-full"></div>
+        <div class="floating-element glass-orb absolute bottom-20 right-1/3 w-28 h-28 rounded-full"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full glass z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="text-xl font-bold heading-font text-gradient">Carolina Medina</div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="nav-link text-white/90 hover:text-white font-medium">Home</a>
+                    <a href="#about" class="nav-link text-white/90 hover:text-white font-medium">About</a>
+                    <a href="#expertise" class="nav-link text-white/90 hover:text-white font-medium">Expertise</a>
+                    <a href="#portfolio" class="nav-link text-white/90 hover:text-white font-medium">Portfolio</a>
+                    <a href="#publications" class="nav-link text-white/90 hover:text-white font-medium">Publications</a>
+                    <a href="#contact" class="nav-link text-white/90 hover:text-white font-medium">Contact</a>
+                </div>
+                <button id="mobile-menu-btn" class="md:hidden glass-button p-2 rounded-lg">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center pt-16 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="text-white">
+                    <h1 class="text-6xl lg:text-7xl font-bold mb-6 leading-tight heading-font">
+                        <span class="text-gradient">Carolina</span><br>
+                        <span class="text-white">Medina</span>
+                    </h1>
+                    <div class="glass-strong rounded-2xl p-6 mb-8">
+                        <p class="text-2xl lg:text-3xl mb-3 font-semibold text-gradient-alt heading-font">
+                            AI Ethics Researcher
+                        </p>
+                        <p class="text-lg text-white/80 font-medium">
+                            Media Strategist & Storyteller
+                        </p>
+                    </div>
+                    <p class="text-lg mb-8 text-white/80 max-w-lg leading-relaxed">
+                        Exploring the intersection of AI, media, and ethics to shape inclusive futures through innovative research and creative storytelling.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <button onclick="scrollToSection('portfolio')" class="glass-button text-white px-8 py-4 rounded-xl font-semibold transition-all">
+                            Explore My Work
+                        </button>
+                        <button onclick="scrollToSection('contact')" class="glass-subtle text-white px-8 py-4 rounded-xl font-semibold border-2 border-white/30 hover:border-white/50 transition-all">
+                            Let's Collaborate
+                        </button>
+                    </div>
+                </div>
+                <div class="flex justify-center relative">
+                    <!-- Glass Avatar Container -->
+                    <div class="glass-strong w-80 h-80 rounded-full p-8 pulse-glass">
+                        <div class="w-full h-full rounded-full glass-subtle flex items-center justify-center relative overflow-hidden">
+                            <!-- Professional Avatar -->
+                            <div class="w-48 h-48 rounded-full glass flex items-center justify-center">
+                                <svg class="w-24 h-24 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                                </svg>
+                            </div>
+                            <!-- Floating elements around avatar -->
+                            <div class="absolute top-4 right-4 w-8 h-8 glass rounded-full flex items-center justify-center">
+                                <span class="text-sm">🏆</span>
+                            </div>
+                            <div class="absolute bottom-4 left-4 w-8 h-8 glass rounded-full flex items-center justify-center">
+                                <span class="text-sm">🎓</span>
+                            </div>
+                            <div class="absolute top-1/2 right-0 w-6 h-6 glass rounded-full flex items-center justify-center">
+                                <span class="text-xs">✨</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Expertise Pillars -->
+    <section class="py-20 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="glass-card p-8 rounded-2xl text-center group">
+                    <div class="icon-glass w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
+                        <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-4 heading-font">AI Ethics & Research</h3>
+                    <p class="text-white/80">Bias analysis, generative imagery, and interdisciplinary studies</p>
+                    <div class="mt-6 flex justify-center space-x-2">
+                        <div class="w-2 h-2 bg-white/60 rounded-full"></div>
+                        <div class="w-2 h-2 bg-white/40 rounded-full"></div>
+                        <div class="w-2 h-2 bg-white/60 rounded-full"></div>
+                    </div>
+                </div>
+                
+                <div class="glass-card p-8 rounded-2xl text-center group">
+                    <div class="icon-glass w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
+                        <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-4 heading-font">Media Strategy</h3>
+                    <p class="text-white/80">Content creation, campaigns, and international projects</p>
+                    <div class="mt-6 flex justify-center space-x-2">
+                        <div class="w-2 h-2 bg-white/40 rounded-full"></div>
+                        <div class="w-2 h-2 bg-white/60 rounded-full"></div>
+                        <div class="w-2 h-2 bg-white/40 rounded-full"></div>
+                    </div>
+                </div>
+                
+                <div class="glass-card p-8 rounded-2xl text-center group">
+                    <div class="icon-glass w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
+                        <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-4 heading-font">Creative Storytelling</h3>
+                    <p class="text-white/80">Audiovisual production, educational resources, and scriptwriting</p>
+                    <div class="mt-6 flex justify-center space-x-2">
+                        <div class="w-2 h-2 bg-white/60 rounded-full"></div>
+                        <div class="w-2 h-2 bg-white/40 rounded-full"></div>
+                        <div class="w-2 h-2 bg-white/60 rounded-full"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recent Achievement -->
+    <section class="py-16 relative">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <div class="achievement-glass rounded-3xl p-8">
+                <div class="flex items-center justify-center mb-6">
+                    <div class="icon-glass w-16 h-16 rounded-2xl flex items-center justify-center mr-4">
+                        <svg class="w-8 h-8 text-yellow-300" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
+                    </div>
+                    <h2 class="text-3xl font-bold text-white heading-font">Recent Achievement</h2>
+                </div>
+                <h3 class="text-2xl font-semibold text-gradient mb-4 heading-font">Best Thesis Award 2024</h3>
+                <p class="text-white/90 mb-6 text-lg">Decoding Biases in AI Image Generators</p>
+                <button class="glass-button text-white px-8 py-3 rounded-xl font-semibold transition-all">
+                    Learn More →
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-5xl font-bold text-gradient mb-8 heading-font">About Me</h2>
+                    <div class="space-y-6">
+                        <p class="text-lg text-white/80 leading-relaxed">
+                            I'm passionate about understanding how technology shapes our world and ensuring it serves everyone equitably. My journey from journalism to audiovisual production to AI research has given me a unique perspective on how stories are told and how biases can be embedded in the systems we create.
+                        </p>
+                        <p class="text-lg text-white/80 leading-relaxed">
+                            Through my work, I bridge the gap between technical research and public understanding, making complex AI concepts accessible while advocating for ethical practices in technology development.
+                        </p>
+                    </div>
+                    <div class="mt-8 flex flex-wrap gap-3">
+                        <span class="glass px-4 py-2 rounded-full text-sm font-medium">Python</span>
+                        <span class="glass px-4 py-2 rounded-full text-sm font-medium">Research</span>
+                        <span class="glass px-4 py-2 rounded-full text-sm font-medium">Storytelling</span>
+                        <span class="glass px-4 py-2 rounded-full text-sm font-medium">Ethics</span>
+                        <span class="glass px-4 py-2 rounded-full text-sm font-medium">Media Strategy</span>
+                    </div>
+                    <button class="mt-8 glass-button text-white px-8 py-4 rounded-xl font-semibold transition-all">
+                        Download CV
+                    </button>
+                </div>
+                <div class="space-y-6">
+                    <div class="timeline-item glass-card p-6 rounded-xl relative">
+                        <div class="flex items-center mb-3">
+                            <div class="w-4 h-4 bg-gradient-to-r from-glass-blue to-glass-purple rounded-full mr-4"></div>
+                            <span class="text-sm font-semibold text-white/70">2024 - Current</span>
+                        </div>
+                        <h4 class="font-bold text-white mb-2 heading-font">AI Ethics Research</h4>
+                        <p class="text-white/70">Best Thesis Award for bias analysis in AI image generators</p>
+                        <div class="absolute right-4 top-4">
+                            <div class="icon-glass w-10 h-10 rounded-xl flex items-center justify-center">
+                                <span class="text-lg">🏆</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item glass-card p-6 rounded-xl relative">
+                        <div class="flex items-center mb-3">
+                            <div class="w-4 h-4 bg-gradient-to-r from-glass-pink to-glass-emerald rounded-full mr-4"></div>
+                            <span class="text-sm font-semibold text-white/70">2022 - 2023</span>
+                        </div>
+                        <h4 class="font-bold text-white mb-2 heading-font">Media Strategy</h4>
+                        <p class="text-white/70">International communication campaigns and content creation</p>
+                        <div class="absolute right-4 top-4">
+                            <div class="icon-glass w-10 h-10 rounded-xl flex items-center justify-center">
+                                <span class="text-lg">🌍</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item glass-card p-6 rounded-xl relative">
+                        <div class="flex items-center mb-3">
+                            <div class="w-4 h-4 bg-gradient-to-r from-glass-emerald to-glass-blue rounded-full mr-4"></div>
+                            <span class="text-sm font-semibold text-white/70">2020 - 2022</span>
+                        </div>
+                        <h4 class="font-bold text-white mb-2 heading-font">Audiovisual Production</h4>
+                        <p class="text-white/70">Creative direction and educational content development</p>
+                        <div class="absolute right-4 top-4">
+                            <div class="icon-glass w-10 h-10 rounded-xl flex items-center justify-center">
+                                <span class="text-lg">🎬</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item glass-card p-6 rounded-xl relative">
+                        <div class="flex items-center mb-3">
+                            <div class="w-4 h-4 bg-gradient-to-r from-glass-purple to-glass-pink rounded-full mr-4"></div>
+                            <span class="text-sm font-semibold text-white/70">2018 - 2020</span>
+                        </div>
+                        <h4 class="font-bold text-white mb-2 heading-font">Journalism</h4>
+                        <p class="text-white/70">Storytelling and investigative reporting foundation</p>
+                        <div class="absolute right-4 top-4">
+                            <div class="icon-glass w-10 h-10 rounded-xl flex items-center justify-center">
+                                <span class="text-lg">📰</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-20 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <h2 class="text-5xl font-bold text-center mb-8 heading-font">
+                <span class="text-gradient">Portfolio</span>
+            </h2>
+            
+            <!-- Filter Buttons -->
+            <div class="flex flex-wrap justify-center gap-4 mb-12">
+                <button class="filter-btn active px-6 py-3 rounded-xl font-semibold" data-filter="all">
+                    All Projects
+                </button>
+                <button class="filter-btn px-6 py-3 rounded-xl font-semibold" data-filter="research">
+                    AI Research
+                </button>
+                <button class="filter-btn px-6 py-3 rounded-xl font-semibold" data-filter="media">
+                    Media Strategy
+                </button>
+                <button class="filter-btn px-6 py-3 rounded-xl font-semibold" data-filter="creative">
+                    Creative Projects
+                </button>
+            </div>
+
+            <!-- Portfolio Grid -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Research Projects -->
+                <div class="portfolio-item glass-card rounded-2xl overflow-hidden" data-category="research">
+                    <div class="h-48 glass-strong flex items-center justify-center relative">
+                        <svg class="w-16 h-16 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                        </svg>
+                        <div class="absolute top-4 right-4 glass w-8 h-8 rounded-lg flex items-center justify-center">
+                            <span class="text-xs font-bold">🏆</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-2 heading-font">AI Bias Detection</h3>
+                        <p class="text-white/70 mb-4">Comprehensive analysis of gender and racial biases in popular AI image generators</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gradient font-semibold">2024 • Award Winner</span>
+                            <div class="flex space-x-1">
+                                <div class="w-2 h-2 bg-white/60 rounded-full"></div>
+                                <div class="w-2 h-2 bg-white/40 rounded-full"></div>
+                                <div class="w-2 h-2 bg-white/60 rounded-full"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item glass-card rounded-2xl overflow-hidden" data-category="research">
+                    <div class="h-48 glass-strong flex items-center justify-center relative">
+                        <svg class="w-16 h-16 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                        </svg>
+                        <div class="absolute top-4 right-4 glass w-8 h-8 rounded-lg flex items-center justify-center">
+                            <span class="text-xs font-bold">📚</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-2 heading-font">Ethical AI Framework</h3>
+                        <p class="text-white/70 mb-4">Practical guidelines for responsible AI development in creative industries</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gradient-alt font-semibold">2024 • Research</span>
+                            <div class="flex space-x-1">
+                                <div class="w-2 h-2 bg-white/40 rounded-full"></div>
+                                <div class="w-2 h-2 bg-white/60 rounded-full"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Media Strategy Projects -->
+                <div class="portfolio-item glass-card rounded-2xl overflow-hidden" data-category="media">
+                    <div class="h-48 glass-strong flex items-center justify-center relative">
+                        <svg class="w-16 h-16 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        <div class="absolute top-4 right-4 glass w-8 h-8 rounded-lg flex items-center justify-center">
+                            <span class="text-xs">🌍</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-2 heading-font">Global Tech Literacy</h3>
+                        <p class="text-white/70 mb-4">Multi-platform campaign reaching 500K+ users across 15 countries</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gradient font-semibold">2023 • Global Impact</span>
+                            <div class="text-xl">🌍</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item glass-card rounded-2xl overflow-hidden" data-category="media">
+                    <div class="h-48 glass-strong flex items-center justify-center relative">
+                        <svg class="w-16 h-16 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z"></path>
+                        </svg>
+                        <div class="absolute top-4 right-4 glass w-8 h-8 rounded-lg flex items-center justify-center">
+                            <span class="text-xs">📺</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-2 heading-font">AI Ethics Awareness</h3>
+                        <p class="text-white/70 mb-4">Educational content series making AI ethics accessible to general audiences</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gradient-alt font-semibold">2023 • 1M+ Views</span>
+                            <div class="text-xl">📺</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Creative Projects -->
+                <div class="portfolio-item glass-card rounded-2xl overflow-hidden" data-category="creative">
+                    <div class="h-48 glass-strong flex items-center justify-center relative">
+                        <svg class="w-16 h-16 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                        </svg>
+                        <div class="absolute top-4 right-4 glass w-8 h-8 rounded-lg flex items-center justify-center">
+                            <span class="text-xs">🎬</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-2 heading-font">AI & Society Documentary</h3>
+                        <p class="text-white/70 mb-4">Short documentary exploring AI's impact on creative industries</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gradient font-semibold">2022 • Film Festival</span>
+                            <div class="text-xl">🎬</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item glass-card rounded-2xl overflow-hidden" data-category="creative">
+                    <div class="h-48 glass-strong flex items-center justify-center relative">
+                        <svg class="w-16 h-16 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                        </svg>
+                        <div class="absolute top-4 right-4 glass w-8 h-8 rounded-lg flex items-center justify-center">
+                            <span class="text-xs">🎮</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-2 heading-font">Interactive Learning</h3>
+                        <p class="text-white/70 mb-4">Gamified educational experience teaching media literacy concepts</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gradient-alt font-semibold">2022 • Innovation</span>
+                            <div class="text-xl">🎮</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Publications Section -->
+    <section id="publications" class="py-20 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <h2 class="text-5xl font-bold text-center mb-16 heading-font">
+                <span class="text-gradient">Publications</span>
+            </h2>
+            
+            <div class="grid lg:grid-cols-3 gap-8">
+                <!-- Academic Publications -->
+                <div class="glass-card rounded-2xl p-8">
+                    <h3 class="text-xl font-bold text-white mb-6 flex items-center heading-font">
+                        <div class="icon-glass w-10 h-10 rounded-xl flex items-center justify-center mr-3">
+                            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                            </svg>
+                        </div>
+                        Academic Research
+                    </h3>
+                    <div class="space-y-6">
+                        <div class="glass-subtle border-l-4 border-glass-blue pl-4 p-4 rounded-r-xl">
+                            <h4 class="font-bold text-white mb-2 heading-font">Decoding Biases in AI</h4>
+                            <p class="text-sm text-gradient mb-2 font-semibold">Master's Thesis • 2024</p>
+                            <p class="text-sm text-white/70">Comprehensive analysis of systematic biases in popular AI image generation tools</p>
+                            <div class="mt-3 flex space-x-2">
+                                <span class="glass px-2 py-1 text-xs rounded-lg">AI</span>
+                                <span class="glass px-2 py-1 text-xs rounded-lg">Bias</span>
+                            </div>
+                        </div>
+                        <div class="glass-subtle border-l-4 border-glass-pink pl-4 p-4 rounded-r-xl">
+                            <h4 class="font-bold text-white mb-2 heading-font">Ethical AI Frameworks</h4>
+                            <p class="text-sm text-gradient-alt mb-2 font-semibold">Journal of AI Ethics • 2024</p>
+                            <p class="text-sm text-white/70">Practical guidelines for responsible AI development in creative industries</p>
+                            <div class="mt-3 flex space-x-2">
+                                <span class="glass px-2 py-1 text-xs rounded-lg">Ethics</span>
+                                <span class="glass px-2 py-1 text-xs rounded-lg">Framework</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Media Articles -->
+                <div class="glass-card rounded-2xl p-8">
+                    <h3 class="text-xl font-bold text-white mb-6 flex items-center heading-font">
+                        <div class="icon-glass w-10 h-10 rounded-xl flex items-center justify-center mr-3">
+                            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"></path>
+                            </svg>
+                        </div>
+                        Media Coverage
+                    </h3>
+                    <div class="space-y-6">
+                        <div class="glass-subtle border-l-4 border-glass-purple pl-4 p-4 rounded-r-xl">
+                            <h4 class="font-bold text-white mb-2 heading-font">Hidden Biases in AI Art</h4>
+                            <p class="text-sm text-gradient mb-2 font-semibold">Tech Review Magazine • 2024</p>
+                            <p class="text-sm text-white/70">Making AI bias research accessible to general audiences</p>
+                            <div class="mt-3 flex space-x-2">
+                                <span class="glass px-2 py-1 text-xs rounded-lg">Media</span>
+                                <span class="glass px-2 py-1 text-xs rounded-lg">Public</span>
+                            </div>
+                        </div>
+                        <div class="glass-subtle border-l-4 border-glass-emerald pl-4 p-4 rounded-r-xl">
+                            <h4 class="font-bold text-white mb-2 heading-font">Media Literacy in AI Age</h4>
+                            <p class="text-sm text-gradient-alt mb-2 font-semibold">Digital Futures Podcast • 2023</p>
+                            <p class="text-sm text-white/70">Interview on preparing society for AI-generated content</p>
+                            <div class="mt-3 flex space-x-2">
+                                <span class="glass px-2 py-1 text-xs rounded-lg">Podcast</span>
+                                <span class="glass px-2 py-1 text-xs rounded-lg">Interview</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Public Speaking -->
+                <div class="glass-card rounded-2xl p-8">
+                    <h3 class="text-xl font-bold text-white mb-6 flex items-center heading-font">
+                        <div class="icon-glass w-10 h-10 rounded-xl flex items-center justify-center mr-3">
+                            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"></path>
+                            </svg>
+                        </div>
+                        Public Speaking
+                    </h3>
+                    <div class="space-y-6">
+                        <div class="glass-subtle border-l-4 border-glass-amber pl-4 p-4 rounded-r-xl">
+                            <h4 class="font-bold text-white mb-2 heading-font">AI Ethics in Creative</h4>
+                            <p class="text-sm text-gradient mb-2 font-semibold">TechEthics Conference • 2024</p>
+                            <p class="text-sm text-white/70">Keynote on responsible AI development practices</p>
+                            <div class="mt-3 flex space-x-2">
+                                <span class="glass px-2 py-1 text-xs rounded-lg">Keynote</span>
+                                <span class="glass px-2 py-1 text-xs rounded-lg">Conference</span>
+                            </div>
+                        </div>
+                        <div class="glass-subtle border-l-4 border-glass-indigo pl-4 p-4 rounded-r-xl">
+                            <h4 class="font-bold text-white mb-2 heading-font">Building Inclusive AI</h4>
+                            <p class="text-sm text-gradient-alt mb-2 font-semibold">Digital Inclusion Summit • 2023</p>
+                            <p class="text-sm text-white/70">Panel discussion on diversity in AI development</p>
+                            <div class="mt-3 flex space-x-2">
+                                <span class="glass px-2 py-1 text-xs rounded-lg">Panel</span>
+                                <span class="glass px-2 py-1 text-xs rounded-lg">Diversity</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 relative">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-12">
+                <h2 class="text-5xl font-bold mb-4 heading-font">
+                    <span class="text-gradient">Let's Connect</span>
+                </h2>
+                <p class="text-xl text-white/80">I'm always open to new collaborations, speaking opportunities, and research partnerships.</p>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-12">
+                <!-- Contact Form -->
+                <div class="glass-card rounded-2xl p-8">
+                    <form class="space-y-6">
+                        <div>
+                            <label class="block text-sm font-semibold mb-2 text-white">Name</label>
+                            <input type="text" class="glass-input w-full px-4 py-3 rounded-xl text-white placeholder-white/50 focus:outline-none" placeholder="Enter your name...">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold mb-2 text-white">Email</label>
+                            <input type="email" class="glass-input w-full px-4 py-3 rounded-xl text-white placeholder-white/50 focus:outline-none" placeholder="your@email.com">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold mb-2 text-white">Message</label>
+                            <textarea rows="5" class="glass-input w-full px-4 py-3 rounded-xl text-white placeholder-white/50 focus:outline-none resize-none" placeholder="Tell me about your project or collaboration idea..."></textarea>
+                        </div>
+                        <button type="submit" class="w-full glass-button text-white px-6 py-4 rounded-xl font-semibold transition-all">
+                            Send Message →
+                        </button>
+                    </form>
+                </div>
+                
+                <!-- Contact Info -->
+                <div class="space-y-8">
+                    <div class="glass-card rounded-2xl p-6">
+                        <h3 class="text-xl font-bold mb-4 text-white heading-font">Get in Touch</h3>
+                        <div class="space-y-4">
+                            <a href="mailto:carolina@example.com" class="flex items-center text-white/80 hover:text-white transition-colors group">
+                                <div class="icon-glass w-12 h-12 rounded-xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform">
+                                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                                    </svg>
+                                </div>
+                                <span>carolina@example.com</span>
+                            </a>
+                            <a href="#" class="flex items-center text-white/80 hover:text-white transition-colors group">
+                                <div class="icon-glass w-12 h-12 rounded-xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform">
+                                    <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                                    </svg>
+                                </div>
+                                <span>LinkedIn Profile</span>
+                            </a>
+                            <a href="#" class="flex items-center text-white/80 hover:text-white transition-colors group">
+                                <div class="icon-glass w-12 h-12 rounded-xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform">
+                                    <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                                    </svg>
+                                </div>
+                                <span>Twitter Handle</span>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="glass-card rounded-2xl p-6">
+                        <h3 class="text-xl font-bold mb-4 text-white heading-font">Collaboration Areas</h3>
+                        <ul class="space-y-3 text-white/80">
+                            <li class="flex items-center">
+                                <div class="w-2 h-2 bg-gradient-to-r from-glass-blue to-glass-purple rounded-full mr-3"></div>
+                                <span>AI Ethics Research Collaborations</span>
+                            </li>
+                            <li class="flex items-center">
+                                <div class="w-2 h-2 bg-gradient-to-r from-glass-pink to-glass-emerald rounded-full mr-3"></div>
+                                <span>Speaking Engagements</span>
+                            </li>
+                            <li class="flex items-center">
+                                <div class="w-2 h-2 bg-gradient-to-r from-glass-emerald to-glass-blue rounded-full mr-3"></div>
+                                <span>Media Strategy Consulting</span>
+                            </li>
+                            <li class="flex items-center">
+                                <div class="w-2 h-2 bg-gradient-to-r from-glass-purple to-glass-pink rounded-full mr-3"></div>
+                                <span>Educational Content Development</span>
+                            </li>
+                            <li class="flex items-center">
+                                <div class="w-2 h-2 bg-gradient-to-r from-glass-amber to-glass-indigo rounded-full mr-3"></div>
+                                <span>Documentary Projects</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="glass-subtle py-8 mt-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="text-white/70">© 2024 Carolina Medina. All rights reserved.</p>
+            <div class="mt-4 flex justify-center space-x-3">
+                <div class="w-2 h-2 bg-gradient-to-r from-glass-blue to-glass-purple rounded-full"></div>
+                <div class="w-2 h-2 bg-gradient-to-r from-glass-pink to-glass-emerald rounded-full"></div>
+                <div class="w-2 h-2 bg-gradient-to-r from-glass-emerald to-glass-blue rounded-full"></div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation
+        function scrollToSection(sectionId) {
+            document.getElementById(sectionId).scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+
+        // Portfolio filtering with smooth animations
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const portfolioItems = document.querySelectorAll('.portfolio-item');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                // Add active class to clicked button
+                button.classList.add('active');
+
+                const filter = button.getAttribute('data-filter');
+
+                portfolioItems.forEach((item, index) => {
+                    setTimeout(() => {
+                        if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                            item.classList.remove('hidden');
+                        } else {
+                            item.classList.add('hidden');
+                        }
+                    }, index * 100); // Staggered animation
+                });
+            });
+        });
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        mobileMenuBtn.addEventListener('click', () => {
+            console.log('Mobile menu toggled');
+        });
+
+        // Navigation links smooth scroll
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = link.getAttribute('href').substring(1);
+                scrollToSection(targetId);
+            });
+        });
+
+        // Form submission with glass effect feedback
+        document.querySelector('form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const button = e.target.querySelector('button[type="submit"]');
+            const originalText = button.textContent;
+            
+            button.textContent = 'Sending...';
+            button.style.opacity = '0.7';
+            
+            setTimeout(() => {
+                button.textContent = 'Message Sent ✓';
+                button.style.background = 'rgba(16, 185, 129, 0.2)';
+                
+                setTimeout(() => {
+                    button.textContent = originalText;
+                    button.style.background = '';
+                    button.style.opacity = '1';
+                }, 2000);
+            }, 2000);
+        });
+
+        // Intersection Observer for timeline animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.style.animationDelay = '0s';
+                        entry.target.classList.add('timeline-item');
+                    }, index * 200);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.timeline-item').forEach(item => {
+            observer.observe(item);
+        });
+
+        // Add hover effects to glass cards
+        document.querySelectorAll('.glass-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-8px)';
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = '';
+            });
+        });
+
+        // Parallax effect for floating orbs
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallax = scrolled * 0.5;
+            
+            document.querySelectorAll('.floating-element').forEach((element, index) => {
+                const speed = 0.2 + (index * 0.1);
+                element.style.transform = `translateY(${parallax * speed}px)`;
+            });
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96f91676c5e64d82',t:'MTc1NTI2NTA1OC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
